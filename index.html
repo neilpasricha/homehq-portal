@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HomeHQ</title>
+<title>HomeHQ — know what your house is about to cost you</title>
+<meta name="description" content="HomeHQ tells you when something in your house is about to cost you money. A private home record with no commercial interest in whether you hire anyone.">
 <style>
   :root {
     color-scheme: light dark;
@@ -12,6 +13,9 @@
     --ink-secondary: #5c6763;
     --accent: #17362f;
     --card: #ffffff;
+    --rule: #e2ddd3;
+    --flag-bg: #fdf6e3;
+    --flag-ink: #6b4f1d;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,47 +24,187 @@
       --ink-secondary: #a7b3ae;
       --accent: #9fc4b8;
       --card: #1c2b26;
+      --rule: #2c3d37;
+      --flag-bg: #2a2418;
+      --flag-ink: #e0c98a;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: 2rem 1.25rem 4rem;
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 3rem 1.25rem 4rem;
   }
-  main { max-width: 42rem; margin: 0 auto; }
-  h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.25rem; }
-  .updated { color: var(--ink-secondary); font-size: 0.9rem; margin-bottom: 2rem; }
-  section {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
+  main { max-width: 40rem; margin: 0 auto; }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+    color: var(--accent);
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
   }
-  h2 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-  nav { margin-bottom: 2rem; }
-  nav a, footer a { color: var(--accent); }
-  ul { list-style: none; }
-  li { margin-bottom: 0.75rem; }
-  footer { margin-top: 2.5rem; color: var(--ink-secondary); font-size: 0.9rem; }
+  .lede { font-size: 1.15rem; color: var(--ink-secondary); margin-bottom: 2.5rem; }
+  h2 { font-size: 1.05rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-secondary); margin-bottom: 0.75rem; }
+  section { margin-bottom: 2.5rem; }
+  p + p { margin-top: 0.85rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .example {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    font-size: 1.05rem;
+  }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.6rem; }
+  .price { font-size: 2rem; color: var(--accent); font-weight: 600; letter-spacing: -0.02em; }
+  .price small { font-size: 1rem; font-weight: 400; color: var(--ink-secondary); letter-spacing: 0; }
+  .strike { color: var(--ink-secondary); text-decoration: line-through; }
+  .buy {
+    display: block;
+    background: var(--accent);
+    color: var(--bg);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    margin-top: 1.25rem;
+  }
+  .flag {
+    background: var(--flag-bg);
+    color: var(--flag-ink);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .flag h2 { color: inherit; opacity: 0.8; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.95rem; }
+  td { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+  td:last-child { text-align: right; color: var(--ink-secondary); }
+  footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--ink-secondary); font-size: 0.9rem; }
+  a { color: var(--accent); }
+  footer a { margin-right: 1rem; }
 </style>
 </head>
 <body>
 <main>
-<h1>HomeHQ</h1>
-<p class="updated">The household record for your home.</p>
+
+<h1>Know what your house is about to cost you.</h1>
+<p class="lede">
+  HomeHQ is a private record of everything in your home — and it uses that
+  record to tell you what is coming before it arrives.
+</p>
+
 <section>
-<h2>Legal</h2>
-<ul>
-<li><a href="./privacy.html">Privacy policy</a></li>
-<li><a href="./terms.html">Terms of service</a></li>
-</ul>
+  <p class="example">
+    You enter your water heater once. Later, HomeHQ opens to:
+    <em>“Water heater — 13 years old, 3 years past the typical 10-year life.”</em>
+  </p>
+  <p>
+    Nobody told you that. It came from a date you typed once and a published
+    service life for that kind of equipment. That is the whole idea: the record
+    you keep should work for you, not just sit there.
+  </p>
 </section>
+
 <section>
-<h2>Support</h2>
-<p>Questions or problems? Email <a href="mailto:neil@pasricha.ai">neil@pasricha.ai</a>.</p>
+  <h2>What it costs to not know</h2>
+  <div class="card">
+    <p>
+      The usual answer to this problem is a home warranty. The average US home
+      warranty runs about <strong>$876 a year</strong>, plus roughly $108 every
+      time you call someone out. In the one state that publishes loss ratios,
+      those plans pay back about <strong>46¢ on the premium dollar</strong>.
+    </p>
+    <p>
+      HomeHQ does not fix your water heater. It tells you the water heater is
+      the thing to think about this year — which is the part the $876 was
+      supposed to buy.
+    </p>
+  </div>
 </section>
+
+<section>
+  <h2>Why not one of the free ones</h2>
+  <p>
+    Most home apps are free because a contractor pays for the lead. That app has
+    a commercial interest in whether you hire someone. HomeHQ does not, and
+    cannot — there are no leads, no referral fees, and no ads. When it helps you
+    find a plumber, it opens whichever maps app you choose with a trade and your
+    city; never your street address, and nobody pays for the click.
+  </p>
+  <p>
+    That matters more than it sounds. The last well-funded product in this
+    category shut down and let its domain lapse; the address where people's home
+    records used to live now serves a sportsbook. A subscription you pay for is
+    a business model that has to keep your records to keep you.
+  </p>
+</section>
+
+<section>
+  <h2>The founding offer</h2>
+  <div class="card">
+    <p class="price">$49 <small>for the first year</small></p>
+    <p style="margin-top:0.5rem">
+      You renew at the founding rate, not the list price. Regular pricing when
+      it opens to everyone:
+    </p>
+    <table>
+      <tr><td>Annual</td><td>$99 / year</td></tr>
+      <tr><td>Monthly</td><td>$12.99 / month</td></tr>
+    </table>
+    <a class="buy" href="{{STRIPE_PAYMENT_LINK}}">Reserve a founding spot — $49</a>
+  </div>
+</section>
+
+<section>
+  <h2>Read this before you pay</h2>
+  <div class="flag">
+    <p>
+      <strong>You are pre-ordering.</strong> The app is built and working, but it
+      is not in the App Store yet. You will get access by
+      <strong>{{DELIVERY_WINDOW}}</strong>.
+    </p>
+    <p>
+      <strong>Refunds are one click and no questions — any time before you get
+      access, and for 30 days after.</strong> Email
+      <a href="mailto:neil@pasricha.ai">neil@pasricha.ai</a> and it is done the
+      same day.
+    </p>
+    <p>
+      <strong>Your money sits untouched until the app ships.</strong> It is not
+      being spent on building it.
+    </p>
+    <p>
+      <strong>What works today:</strong> the full home record — appliances and
+      systems with model, serial and install dates, maintenance schedules and
+      history, documents, contractors, expenses — shared with a second person in
+      your household at no extra cost. Service-life warnings like the one above.
+      Export of your whole record as plain text you keep.
+    </p>
+    <p>
+      <strong>What is not built yet:</strong> phone notifications (today HomeHQ
+      shows you what is due when you open it), the AI assistant that answers
+      questions across your archive, and photo capture that reads a nameplate
+      for you. None of those are part of what you are buying today.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:0.75rem">
+    Built by Neil Pasricha. Questions before you buy?
+    <a href="mailto:neil@pasricha.ai">neil@pasricha.ai</a> — a real person answers.
+  </p>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./terms.html">Terms</a>
+</footer>
+
 </main>
 </body>
 </html>
